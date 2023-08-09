@@ -2,7 +2,7 @@ import Header from './header/Header'
 import Login from './login/Login'
 import NotFound from './not_found/NotFound'
 import Users from './users/Users'
-
+import ViewUser from './users/ViewUser'
 export const routers = [
   {
     path: '/',
@@ -15,7 +15,7 @@ export const routers = [
       },
       {
         path: '/users/:id',
-        element: <Users />,
+        element: <ViewUser />,
       },
       { path: '*', element: <NotFound /> },
     ],

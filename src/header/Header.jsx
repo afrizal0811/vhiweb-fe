@@ -7,7 +7,7 @@ const Header = () => {
       <Link to='/'>
         <Button variant='primary'>Login</Button>
       </Link>
-      <Link to='/users'>
+      <Link to='/users?page=1'>
         <Button variant='primary'>Users</Button>
       </Link>
       <Outlet />
