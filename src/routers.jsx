@@ -1,7 +1,7 @@
-import Login from './login/Login';
-import Header from './header/Header';
-import NotFound from './not_found/NotFound';
-import Users from './users/Users';
+import Header from './header/Header'
+import Login from './login/Login'
+import NotFound from './not_found/NotFound'
+import Users from './users/Users'
 
 export const routers = [
   {
@@ -20,4 +20,4 @@ export const routers = [
       { path: '*', element: <NotFound /> },
     ],
   },
-];
+]

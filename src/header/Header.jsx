@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import React from 'react'
+import { Button } from 'react-bootstrap'
+import { Link, Outlet } from 'react-router-dom'
 const Header = () => {
   return (
     <div>
@@ -12,7 +12,7 @@ const Header = () => {
       </Link>
       <Outlet />
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
