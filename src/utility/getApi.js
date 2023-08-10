@@ -11,3 +11,15 @@ export const getApi = async (URL) => {
     })
   return url
 }
+
+export const postApi = async (URL, params) => {
+  const url = await axios
+    .post(URL, params)
+    .then((response) => {
+      return response
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  return url
+}
