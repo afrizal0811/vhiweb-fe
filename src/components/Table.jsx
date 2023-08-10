@@ -5,12 +5,14 @@ const Tables = (props) => {
   const { data, columns } = props
 
   return (
-    <BootstrapTable
-      bootstrap4
-      keyField='id'
-      data={data}
-      columns={columns}
-    />
+    <div>
+      <BootstrapTable
+        bootstrap4
+        keyField='id'
+        data={data}
+        columns={columns}
+      />
+    </div>
   )
 }
 
