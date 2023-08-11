@@ -1,7 +1,7 @@
-import { Button } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-export const columns = (users) => [
+export const columns = () => [
   {
     dataField: 'id',
     text: 'User ID',
@@ -12,19 +12,17 @@ export const columns = (users) => [
   },
   {
     dataField: 'last_name',
-    text: 'First Name',
-  },
-  {
-    dataField: 'email',
-    text: 'Email',
+    text: 'Last Name',
   },
   {
     dataField: 'id',
     formatter: (id) => {
       return (
-        <Link to={`/users/${id}`}>
-          <Button variant='primary'>View</Button>
-        </Link>
+        <Container className='d-flex justify-content-center align-items-center'>
+          <Link to={`/users/${id}`}>
+            <Button variant='primary'>View</Button>
+          </Link>
+        </Container>
       )
     },
     text: 'Action',
