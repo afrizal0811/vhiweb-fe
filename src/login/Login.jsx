@@ -1,9 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
-import { HandleButton } from '../utility/handleButton'
+import { useNavigate } from 'react-router-dom'
+import { baseUrl } from '../constant/baseUrl'
+import { postApi } from '../utility/getApi'
+import { checkValidToken, localStorages } from '../utility/localStorages'
 
 const Login = () => {
-  const { handleChange, handleSubmit } = HandleButton()
+  const navigate = useNavigate()
+  const [values, setValues] = useState({
+    email: '',
+    password: '',
+  })
+
+  const fetchData = async () => {
+    const url = `${baseUrl}/login`
+    const response = await postApi(url, values)
+    const token = response.data.token
+    localStorages(token)
+  }
+
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await fetchData()
+    if (checkValidToken()) {
+      navigate('/users?page=1')
+    }
+  }
+
   return (
     <div className='m-5 d-flex justify-content-center align-items-center'>
       <Form className='w-25'>

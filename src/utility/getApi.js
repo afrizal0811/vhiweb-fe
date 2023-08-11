@@ -18,8 +18,8 @@ export const postApi = async (URL, params) => {
     .then((response) => {
       return response
     })
-    .catch((error) => {
-      console.log(error)
+    .catch((e) => {
+      return e.error
     })
   return url
 }
