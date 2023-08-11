@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { localStorages } from '../utility/localStorages'
 
 export const getApi = async (URL) => {
   const url = await axios
@@ -7,7 +8,7 @@ export const getApi = async (URL) => {
       return response.data
     })
     .catch((error) => {
-      console.log(error)
+      return error
     })
   return url
 }
@@ -19,7 +20,15 @@ export const postApi = async (URL, params) => {
       return response
     })
     .catch((e) => {
-      return e.error
+      return e.response
     })
   return url
+}
+
+export const apiValidation = (response) => {
+  if (response.status >= 400) {
+    return response.data.error
+  } else {
+    localStorages(response.data.token)
+  }
 }
