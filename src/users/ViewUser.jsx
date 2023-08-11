@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import { Card } from 'react-bootstrap'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Loader from '../components/Loader'
 import { baseUrl } from '../constant/baseUrl'
 import { getApi } from '../utility/getApi'
+import { checkValidToken } from '../utility/localStorages'
+
 const ViewUser = () => {
+  const navigate = useNavigate()
+
   const [user, setUser] = useState([])
   const [loading, setLoading] = useState(true)
   const pathname = useLocation().pathname
   const userId = pathname.split('/').pop()
   useEffect(() => {
+    if (!checkValidToken()) {
+      navigate('/')
+    }
     const fetchData = async () => {
       const response = await getApi(`${baseUrl}/users/${userId}`)
       setUser(response.data)
       setLoading(false)
     }
     fetchData()
-  }, [userId])
+  }, [userId, navigate])
 
   const renderLoading = <Loader />
   const renderUserCard = (
