@@ -8,6 +8,9 @@
 3. Pengguna dapat melihat detail dari user dengan menekan tombol 'View' di table column 'Action'
 4. Pengguna dapat logout dan kembali ke menu login dengan menekan tab 'Logout' di header
 
+## Public Website
+
+https://vhiweb-fe.vercel.app/
 ## Available Scripts
 
 In the project directory, you can run:
