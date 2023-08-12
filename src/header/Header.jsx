@@ -8,7 +8,7 @@ const Header = () => {
 
   useEffect(() => {
     if (isLogin) {
-      navigate('/users?page=1')
+      navigate('/users')
     }
   }, [navigate, isLogin])
 
@@ -18,7 +18,7 @@ const Header = () => {
   }
 
   const renderUserButton = (
-    <Link to='/users?page=1'>
+    <Link to='/users'>
       <Nav.Link href='#users'>Users</Nav.Link>
     </Link>
   )

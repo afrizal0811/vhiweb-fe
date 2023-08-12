@@ -32,7 +32,7 @@ const Login = () => {
     e.preventDefault()
     await fetchData()
     if (checkValidToken()) {
-      navigate('/users?page=1')
+      navigate('/users')
     }
   }
 
